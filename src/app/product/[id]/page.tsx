@@ -1,4 +1,4 @@
-export default async function ProductDetails({ params }) {
+export default async function ProductDetails({ params } : {params: {id: string}}) {
     const { id } = params;
 
     try {
@@ -22,7 +22,7 @@ export default async function ProductDetails({ params }) {
                 <p className="text-gray-600">{product.description}</p>
             </div>
         );
-    } catch (error) {
+    } catch (error : string | any) {
         return <div>Error: {error.message}</div>;
     }
 }

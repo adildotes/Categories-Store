@@ -1,11 +1,12 @@
 'use client'
 import { useState } from 'react';
 import Link from 'next/link';
+import { Product } from '@/utils/types';
 
 export default function MyInfo() {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState<Product[]>([]);
 
-    const addToCart = (product: { name: any; }) => {
+    const addToCart = (product: Product) => {
         setCart([...cart, product]);
         alert(`${product.name} added to cart!`);
     };

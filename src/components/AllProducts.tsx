@@ -11,7 +11,7 @@ interface AllProductsProps {
 export default function AllProducts({ productsData }: AllProductsProps) {
     const [filteredProducts, setFilteredProducts] = useState<ProductType[]>(productsData);
     const rowCategories = productsData.map((product: { category: any; }) => product.category);
-    const categories = ['all', ...new Set(rowCategories)];
+    const categories = ['all', ...Array.from(new Set(rowCategories))];
     const [selectedCategory, setSelectedCategory] = useState('all');
 
     useEffect(() => {
